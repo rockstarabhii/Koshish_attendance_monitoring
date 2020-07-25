@@ -6,19 +6,42 @@
 }
 .container{
 	text-align: center;
-	padding-top: 30%;
+	padding-top: 12%;
+
 }
 
-.h1{
+.display-4{
 	text-align: center;
-	float: none;
+	float: center;
+	
+	border-style: double;
+	border-width: 6px;
+	
+	border-radius:10px;
+	border-color: #FFC200;
+    display: inline-block;
 }
-.p{
+.heading{
+	font-family: 'Fredoka One', cursive;
+	font-size: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: auto;
+
+}
+.lead{
 	text-align: center;
+	padding-top: 5%;
 	float: none;
+	font-weight: bold;
+	font-family: 'Fredoka One', cursive;
+	font-color:;
 }
 
-
+.buttondiv
+{
+	font-size: 50px;
+}
 .button {
   border: none;
   color: white;
@@ -26,21 +49,9 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 50px;
   margin:10px 10px 10px 10px;
   cursor: pointer;
   border-radius: 12px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.button1 {
-	background-color: #009acd;
-	float: none;
-	} 
-.button2 {
-	background-color:  #4CAF50;
-	float :none;
-	 } 
-.btn-primary{
-	color: #FFC200;
 }
