@@ -18,7 +18,7 @@ td{
 tr:last-child td{
   border:none;  
 }
-.attendance>input[type=checkbox] {
+.attendance>input[type=radio] {
   cursor: pointer;
   height: 30px;
   margin:4px 0 0;
@@ -28,7 +28,7 @@ tr:last-child td{
   z-index: 2;
 }
 
-.attendance>input[type=checkbox] + span {
+.attendance>input[type=radio] + span {
   background: #e74c3c;
   border-radius: 50%;
   box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
@@ -39,7 +39,7 @@ tr:last-child td{
   width: 20px;
   transition: all .2s ease;
 }
-.attendance>input[type=checkbox] + span::before, .attendance>input[type=checkbox] + span::after{
+.attendance>input[type=radio] + span::before, .attendance>input[type=radio] + span::after{
   background:#fff;
   content:'';
   display:block;
@@ -47,31 +47,31 @@ tr:last-child td{
   width:2px;
   transition: all .2s ease;
 }
-.attendance>input[type=checkbox] + span::before{
+.attendance>input[type=radio] + span::before{
   height:12px;
   left:9px;
   top:4px;
   -webkit-transform:rotate(-45deg);
   transform:rotate(-45deg);
 }
-.attendance>input[type=checkbox] + span::after{
+.attendance>input[type=radio] + span::after{
   height:12px;
   right:9px;
   top:4px;
   -webkit-transform:rotate(45deg);
   transform:rotate(45deg);
 }
-.attendance>input[type=checkbox]:checked + span {
+.attendance>input[type=radio]:checked + span {
   background:#2ecc71;         
 }
-.attendance>input[type=checkbox]:checked + span::before{
+.attendance>input[type=radio]:checked + span::before{
   height: 7px;
   left: 6px;
   top: 8px;
   -webkit-transform:rotate(-47deg);
   transform:rotate(-47deg);
 }
-.attendance>input[type=checkbox]:checked + span::after{
+.attendance>input[type=radio]:checked + span::after{
   height: 11px;
   right: 6px;
   top: 4px;

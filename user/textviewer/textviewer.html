@@ -10,22 +10,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
- /***** var NAME = decodeURIComponent(window.location.search.match(/(\?|&)name\=([^&]*)/)[2]);
-  var START_DATE = decodeURIComponent(window.location.search.match(/(\?|&)date1\=([^&]*)/)[2]);
+    var NAME = decodeURIComponent(window.location.search.match(/(\?|&)name\=([^&]*)/)[2]);
+    var START_DATE = decodeURIComponent(window.location.search.match(/(\?|&)date1\=([^&]*)/)[2]);
 	var END_DATE = decodeURIComponent(window.location.search.match(/(\?|&)date2\=([^&]*)/)[2]);
-	console.log(NAME,START_DATE,END_DATE);****/
+	console.log(NAME,START_DATE,END_DATE)
 	 var data =JSON.stringify({
+    "NAME": NAME,
+    "START_DATE": START_DATE,
+    "END_DATE": END_DATE
+  });
+  console.log(data)
 
-    
-    "NAME": "Dharmvir",
-    "START_DATE": "2020-08-01",
-    "END_DATE": "2020-08-08"
-
-
- });
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      if(!this.responseText){
+        alert("Some Issue, Can't find data")
+      }
     	var result = JSON.parse(this.responseText)
       	document.getElementById("Name").innerHTML += result.NAME;
        document.getElementById("Present").innerHTML += result.PRESENT;
@@ -37,7 +38,7 @@
           
     }
   };
-  xhttp.open("POST","http://ce745b13144c.ngrok.io/show_attendance", true);
+  xhttp.open("POST","https://0b99b395f57f.ngrok.io/show_attendance", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(data);
   </script>

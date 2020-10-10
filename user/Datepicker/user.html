@@ -6,24 +6,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
-function loadDoc() {
-/****var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("Name").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "Dropdown.txt", true);
-  xhttp.send();****/
-  var name = document.getElementById('Name').value
-var date1 = document.getElementById('date1').value
-var date2 = document.getElementById('date2').value
-  var url = "file:///C:/Users/Anu/Desktop/Koshish%20Website/KOSHISH_ATTENDANCE_FE/user/textviewer/textviewer.html?name="+name +"&date1="+date1+"&date2="+date2
-window.location.href=url
-}
-</script>
 </head>
 <body>
 <div class="background">
@@ -35,20 +17,6 @@ window.location.href=url
 
 <select name="Students" id="Name"class="dropdown1 "/>
 
-  <option value="Prankul">Prankul</option>
-  <option value="Rupali">Rupali</option>
-  <option value="Abhishek">Abhishek</option>
-  <option value="Dharma">Dharamvir</option>
-  <option value="Anshul">Anshul</option>
-  <option value="Chetan">Chetan</option>
-  <option value="Utkarsh">Utkarsh</option>
-  <option value="Shweta">Shweta</option>
-  <option value="Sarita">Sarita</option>
-  <option value="Netrika">Netrika</option>
-  <option value="Misha">Misha</option>
-  <option value="Shobit">Shobit</option>
-   <option value="Harshita">Harshita</option>
-  
 </select>
   </div>
 </div>
@@ -57,16 +25,56 @@ window.location.href=url
 <input type="date" name="date" id="date1">
 <p>to</p>
 <label for="date">Date</label>
-<input type="date" name="date" id="date2">
+<input type="date" name="date1" id="date2">
 </div>
 
  <div class="text-center">
-            <button type="button" class="btn btn-primary" onclick="loadDoc()">Show Attendance </button>
-          </div>
+  <button type="button" class="btn btn-primary" onclick="loadDoc()">Show Attendance </button>
+</div>
 
 </div>
 
 
 
 </body>
+  <script>
+function loadDoc() {
+  var name = document.getElementById('Name').value
+var date1 = document.getElementById('date1').value
+var date2 = document.getElementById('date2').value
+if(!name || !date1 || !date2){
+  alert("Select all Data")
+  return 0;
+}
+  var url = "./../textviewer/textviewer.html?name="+name +"&date1="+date1+"&date2="+date2
+window.location.href=url
+}
+function getMembersName(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        printMembersName(this.responseText)
+      }
+    };
+    xhttp.open("GET","https://0b99b395f57f.ngrok.io/get_member_name", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send();
+  }
+  function printMembersName(payload){
+    if(!payload){
+      return 1;
+    }
+    try{
+      payload = JSON.parse(payload)
+    }
+    catch(e){}
+    membersArr = payload.member_data_json
+    var tableBody = ''
+    for(var i=0; i<payload.member_data_json.length; i++){
+      tableBody += `<option value="${payload.member_data_json[i]}">${payload.member_data_json[i]}</option>`
+    }
+    document.getElementById('Name').innerHTML = tableBody;
+  }
+  getMembersName()
+</script>
 </html>

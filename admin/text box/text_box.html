@@ -15,14 +15,15 @@
 </head>
 <body>
 <div class="container">
- 
-<form>
+<h1 id="lol"></h1>
+ <hr>
+<form id="memberForm">
   <label for="fname">Name:</label><br>
   <input type="text" id="fname" name="fname" placeholder="Enter your name" class='form-control'><br>
   <label for="lname">Year of joining:</label><br>
-  <input type="text" id="lname" name="lname" placeholder="Enter year of joining"><br>
+  <input type="number" id="lname" name="lname" placeholder="Enter year of joining"><br>
   <label for="fname">Email:</label><br>
-  <input type="text" id="ename" name="ename" placeholder="Enter email"><br>
+  <input type="email" id="ename" name="ename" placeholder="Enter email"><br>
   <label for="lname">Phone no:</label><br>
   <input type="text" id="pname" name="pname" placeholder="Enter phone no"><br>
   <label for="fname">Location:</label><br>
@@ -36,7 +37,6 @@
   <input type="text" id="rname" name="rname" placeholder="Enter Responsibility"><br>
    </div>
 </form>
-<h2 id="lol"></h2>
 <div class="container2"> 
 <form onsubmit="event.preventDefault(); myfunction();">
 	<h3>Select the day</h3>
@@ -78,11 +78,7 @@
      "WEDNESDAY":document.getElementById("Day4").checked ? 1 : 0,
      "THURSDAY":document.getElementById("Day5").checked ? 1 : 0,
      "FRIDAY":document.getElementById("Day6").checked ? 1 : 0,
-     "SATURDAY":document.getElementById("Day7").checked ? 1 : 0,
-
- 
-
-
+     "SATURDAY":document.getElementById("Day7").checked ? 1 : 0
  });
       var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -90,12 +86,10 @@
 console.log ("##########")
 console.log(this.responseText)
 var result = this.responseText
-    document.getElementById("lol").innerHTML += result;
-
-
-   
+    document.getElementById("lol").innerHTML += result;   
+    document.getElementById('memberForm').reset()
   }};
-  xhttp.open("POST","http://b18817009bad.ngrok.io/add_new_member", true);
+  xhttp.open("POST","https://0b99b395f57f.ngrok.io/add_new_member", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(data);
   document.getElementById("hill").disabled = true;
