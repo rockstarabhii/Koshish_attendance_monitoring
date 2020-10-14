@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="./../../js/constants.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
     var NAME = decodeURIComponent(window.location.search.match(/(\?|&)name\=([^&]*)/)[2]);
@@ -38,7 +39,7 @@
           
     }
   };
-  xhttp.open("POST","https://0b99b395f57f.ngrok.io/show_attendance", true);
+  xhttp.open("POST", serverUrl+"/show_attendance", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(data);
   </script>

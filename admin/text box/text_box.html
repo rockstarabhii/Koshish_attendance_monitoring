@@ -11,6 +11,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./../../js/constants.js"></script>
 
 </head>
 <body>
@@ -89,7 +90,7 @@ var result = this.responseText
     document.getElementById("lol").innerHTML += result;   
     document.getElementById('memberForm').reset()
   }};
-  xhttp.open("POST","https://0b99b395f57f.ngrok.io/add_new_member", true);
+  xhttp.open("POST",serverUrl+"/add_new_member", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(data);
   document.getElementById("hill").disabled = true;
